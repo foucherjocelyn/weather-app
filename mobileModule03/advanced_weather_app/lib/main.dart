@@ -8,6 +8,7 @@ import 'package:advanced_weather_app/widgets/bottom_bar.dart';
 import 'package:advanced_weather_app/widgets/top_bar.dart';
 import 'package:provider/provider.dart';
 import 'models/location_model.dart';
+import 'package:advanced_weather_app/utils/app_theme.dart';
 
 void main() {
   final locationService = LocationService();
@@ -96,6 +97,7 @@ class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: AppTheme.lightTheme,
       home: DefaultTabController(
         length: 3,
         child: Container(

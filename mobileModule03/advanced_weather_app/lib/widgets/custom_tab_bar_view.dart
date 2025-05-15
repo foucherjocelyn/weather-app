@@ -93,8 +93,14 @@ class TodayWeatherTab extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const SizedBox(height: 30.0),
-              Text('${weatherModel.location.city}'),
-              Text('${weatherModel.location.region}'),
+              Text(
+                '${weatherModel.location.city}',
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
+              Text(
+                '${weatherModel.location.region}',
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
               Text('${weatherModel.location.country}'),
               const SizedBox(height: 16.0),
               ...weatherModel.hourlyWeatherList.map((hourly) {
@@ -164,8 +170,14 @@ class WeeklyWeatherTab extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const SizedBox(height: 30.0),
-              Text('${weatherModel.location.city}'),
-              Text('${weatherModel.location.region}'),
+              Text(
+                '${weatherModel.location.city}',
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
+              Text(
+                '${weatherModel.location.region}',
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
               Text('${weatherModel.location.country}'),
               const SizedBox(height: 16.0),
               ...weatherModel.dailyWeatherList.map((daily) {
