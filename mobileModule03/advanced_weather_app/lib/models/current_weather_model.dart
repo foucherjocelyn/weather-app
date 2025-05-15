@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:medium_weather_app/models/location_model.dart';
-import 'package:medium_weather_app/utils/get_weather_description.dart';
+import 'package:advanced_weather_app/models/location_model.dart';
+import 'package:advanced_weather_app/utils/get_weather_description.dart';
 
 Future<http.Response> fetchCurrentWeather(
   double latitude,

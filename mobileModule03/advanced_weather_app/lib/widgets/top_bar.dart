@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:medium_weather_app/models/location_model.dart';
-import 'package:medium_weather_app/services/location_service.dart';
+import 'package:advanced_weather_app/models/location_model.dart';
+import 'package:advanced_weather_app/services/location_service.dart';
 import 'package:provider/provider.dart';
 
 class TopBar extends StatefulWidget implements PreferredSizeWidget {
@@ -35,7 +35,7 @@ class _TopBarState extends State<TopBar> {
   Future<void> _searchCities(String query, BuildContext context) async {
     final locationService = context.read<LocationService>();
     final cities = await locationService.searchCities(query);
-    setState(() => suggestions = cities);
+    setState(() => suggestions = cities.sublist(0, 5));
   }
 
   @override
@@ -51,7 +51,7 @@ class _TopBarState extends State<TopBar> {
               child: SearchAnchor(
                 searchController: _searchController,
                 viewConstraints: const BoxConstraints(maxHeight: 300),
-                isFullScreen: false,
+                isFullScreen: true,
                 viewLeading: const Icon(Icons.search),
                 viewHintText: 'Search city',
                 builder: (context, searchAnchorController) {
@@ -75,15 +75,15 @@ class _TopBarState extends State<TopBar> {
                       widget.searchText.text = '';
                       print('Selected by Enter: $city');
                       widget.onSearchPressed(city);
-                      _searchController.closeView('');
                     } else {
                       final locationService = context.read<LocationService>();
                       locationService.setError(
                         'No cities found matching "$value"',
                       );
-                      _searchController.closeView('');
                     }
                   }
+                  _searchController.closeView('');
+
                 },
                 suggestionsBuilder: (context, searchController) async {
                   if (searchController.text.isEmpty) {
@@ -107,6 +107,7 @@ class _TopBarState extends State<TopBar> {
                           ),
                           onTap: () {
                             searchController.closeView('');
+                            FocusScope.of(context).unfocus();
                             widget.searchText.text = '';
                             widget.onSearchPressed(city);
                           },

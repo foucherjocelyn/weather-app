@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:medium_weather_app/models/current_weather_model.dart';
-import 'package:medium_weather_app/models/daily_weather_model.dart';
-import 'package:medium_weather_app/models/hourly_weather_model.dart';
-import 'package:medium_weather_app/services/location_service.dart';
-import 'package:medium_weather_app/widgets/custom_tab_bar_view.dart';
-import 'package:medium_weather_app/widgets/bottom_bar.dart';
-import 'package:medium_weather_app/widgets/top_bar.dart';
+import 'package:advanced_weather_app/models/current_weather_model.dart';
+import 'package:advanced_weather_app/models/daily_weather_model.dart';
+import 'package:advanced_weather_app/models/hourly_weather_model.dart';
+import 'package:advanced_weather_app/services/location_service.dart';
+import 'package:advanced_weather_app/widgets/custom_tab_bar_view.dart';
+import 'package:advanced_weather_app/widgets/bottom_bar.dart';
+import 'package:advanced_weather_app/widgets/top_bar.dart';
 import 'package:provider/provider.dart';
 import 'models/location_model.dart';
 

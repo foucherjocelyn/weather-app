@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:medium_weather_app/models/current_weather_model.dart';
-import 'package:medium_weather_app/models/daily_weather_model.dart';
-import 'package:medium_weather_app/models/hourly_weather_model.dart';
+import 'package:advanced_weather_app/models/current_weather_model.dart';
+import 'package:advanced_weather_app/models/daily_weather_model.dart';
+import 'package:advanced_weather_app/models/hourly_weather_model.dart';
 import 'package:provider/provider.dart';
 
 class CustomTabBarView extends StatelessWidget {
