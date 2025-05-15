@@ -1,3 +1,5 @@
+
+//TODO: make non-nullable
 class Location {
   final String? city;
   final String? region;
