@@ -41,7 +41,7 @@ class _TopBarState extends State<TopBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.blue,
+      backgroundColor: Colors.transparent,
       bottom: PreferredSize(
         preferredSize: const Size.fromHeight(20.0),
         child: Row(

@@ -98,18 +98,27 @@ class _MainAppState extends State<MainApp> {
     return MaterialApp(
       home: DefaultTabController(
         length: 3,
-        child: Scaffold(
-          appBar: TopBar(
-            searchText: searchText,
-            // Call the method in LocationService
-            onLocationPressed: () => context.read<LocationService>().fetchCurrentLocation(),
-            onSearchPressed: (Location currentLocation) => changeLocation(currentLocation),
+        child: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/images/weather_background.jpeg'),
+              fit: BoxFit.cover,
+            ),
           ),
-          bottomNavigationBar: const BottomBar(),
-          body: CustomTabBarView(
-            placeholderTextCurrently: placeholderTextCurrently,
-            placeholderTextToday: placeholderTextToday,
-            placeholderTextWeekly: placeholderTextWeekly,
+          child: Scaffold(
+            backgroundColor: Colors.transparent,
+            appBar: TopBar(
+              searchText: searchText,
+              // Call the method in LocationService
+              onLocationPressed: () => context.read<LocationService>().fetchCurrentLocation(),
+              onSearchPressed: (Location currentLocation) => changeLocation(currentLocation),
+            ),
+            bottomNavigationBar: const BottomBar(),
+            body: CustomTabBarView(
+              placeholderTextCurrently: placeholderTextCurrently,
+              placeholderTextToday: placeholderTextToday,
+              placeholderTextWeekly: placeholderTextWeekly,
+            ),
           ),
         ),
       ),

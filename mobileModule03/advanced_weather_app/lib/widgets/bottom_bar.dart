@@ -7,6 +7,7 @@ class BottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
+      color: Colors.transparent,
       child: TabBar(
         tabs: const <Widget>[
           Tab(icon: Icon(Icons.access_time), text: 'Currently'),
