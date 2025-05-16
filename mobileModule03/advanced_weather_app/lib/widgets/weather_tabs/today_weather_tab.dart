@@ -2,6 +2,7 @@ import 'package:advanced_weather_app/models/hourly_weather_model.dart';
 import 'package:advanced_weather_app/utils/weather_icon_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:fl_chart/fl_chart.dart';
 
 class TodayWeatherTab extends StatelessWidget {
   final String placeholderText;
@@ -39,9 +40,52 @@ class TodayWeatherTab extends StatelessWidget {
                 '${weatherModel.location.region}, ${weatherModel.location.country}',
                 style: Theme.of(context).textTheme.titleMedium,
               ),
-              const SizedBox(height: 16.0),
-              const SizedBox(height: 320.0),
+              const SizedBox(height: 56.0),
+              SizedBox(
+                height: 220,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: LineChart(
+                    LineChartData(
+                      titlesData: FlTitlesData(
+                        leftTitles: AxisTitles(
+                          sideTitles: SideTitles(showTitles: true,
+                          reservedSize: 40,
+                          minIncluded: false,
+                          maxIncluded: false,
+                          interval: 5,),
+                        ),
+                        bottomTitles: AxisTitles(
+                          sideTitles: SideTitles(showTitles: true,  
+                          reservedSize: 28,),
+                        ),
+                        rightTitles: AxisTitles(
+                          sideTitles: SideTitles(showTitles: false),
+                        ),
+                        topTitles: AxisTitles(
+                          sideTitles: SideTitles(showTitles: false),
+                        ),
+                      ),
+                      lineBarsData: [
+                        LineChartBarData(
+                          spots: weatherModel.hourlyWeatherList.map((hourly) {
+                            final double timeValue = hourly.time.hour + 
+                                                     (hourly.time.minute / 60.0);
+                            final temp = hourly.temperature.toDouble();
+                            return FlSpot(timeValue, temp);
+                          }).toList(),
+                          isCurved: true,
+                          color: Colors.orangeAccent,
+                          barWidth: 3,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
               
+              const SizedBox(height: 20.0),
+              // Hourly weather scrollable list
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
@@ -59,6 +103,8 @@ class TodayWeatherTab extends StatelessWidget {
                   }).toList(),
                 ),
               ),
+              const SizedBox(height: 16.0),
+              
             ],
           ),
         );
