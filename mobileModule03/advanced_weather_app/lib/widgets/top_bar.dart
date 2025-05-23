@@ -101,9 +101,9 @@ class _TopBarState extends State<TopBar> {
                   return suggestions
                       .map(
                         (city) => ListTile(
-                          title: Text(city.city ?? ''),
+                          title: Text(city.city),
                           subtitle: Text(
-                            '${city.region ?? ''}, ${city.country ?? ''}',
+                            '${city.region}, ${city.country}',
                           ),
                           onTap: () {
                             searchController.closeView('');

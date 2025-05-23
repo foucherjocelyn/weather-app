@@ -40,6 +40,7 @@ class WeeklyWeatherTab extends StatelessWidget {
                 '${weatherModel.location.region}, ${weatherModel.location.country}',
                 style: Theme.of(context).textTheme.titleMedium,
               ),
+              const SizedBox(height: 56.0),
               // Temperature Chart
               Container(
                 decoration: BoxDecoration(

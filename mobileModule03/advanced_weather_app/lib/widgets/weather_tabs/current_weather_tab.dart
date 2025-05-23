@@ -35,7 +35,7 @@ class CurrentWeatherTab extends StatelessWidget {
                 Column(
                   children: [
                     Text(
-                      weatherModel.location.city!,
+                      weatherModel.location.city,
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     Text(
