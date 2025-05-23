@@ -57,14 +57,15 @@ class TodayWeatherTab extends StatelessWidget {
                             leftTitles: AxisTitles(
                             sideTitles: SideTitles(
                               showTitles: true,
-                              reservedSize: 40,
-                              minIncluded: false,
-                              maxIncluded: false,
+                              reservedSize: 50,
                               interval: 5,
                               getTitlesWidget: (value, meta) {
-                              return Text(
-                                '${value.toInt()}°C',
-                                style: const TextStyle(fontSize: 12),
+                              return SideTitleWidget(
+                                meta: meta,
+                                child: Text(
+                                  '${value}°C',
+                                  style: const TextStyle(fontSize: 12),
+                                ),
                               );
                               },
                             ),
@@ -87,9 +88,12 @@ class TodayWeatherTab extends StatelessWidget {
                                   final minute = timeOfDay.minute
                                       .toString()
                                       .padLeft(2, '0');
-                                  return Text(
-                                    '$hour:$minute',
-                                    style: const TextStyle(fontSize: 12),
+                                  return SideTitleWidget(
+                                    meta: meta,
+                                    child: Text(
+                                      '$hour:$minute',
+                                      style: const TextStyle(fontSize: 12),
+                                    ),
                                   );
                                 }
                                 return const Text('');

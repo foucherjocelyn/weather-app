@@ -57,14 +57,15 @@ class WeeklyWeatherTab extends StatelessWidget {
                           leftTitles: AxisTitles(
                             sideTitles: SideTitles(
                               showTitles: true,
-                              reservedSize: 40,
-                              minIncluded: false,
-                              maxIncluded: false,
+                              reservedSize: 50,
                               interval: 5,
                               getTitlesWidget: (value, meta) {
-                              return Text(
-                                '${value.toInt()}°C',
-                                style: const TextStyle(fontSize: 12),
+                              return SideTitleWidget(
+                                meta: meta,
+                                child: Text(
+                                  '${value}°C',
+                                  style: const TextStyle(fontSize: 12),
+                                ),
                               );
                               },
                             ),
@@ -72,15 +73,18 @@ class WeeklyWeatherTab extends StatelessWidget {
                           bottomTitles: AxisTitles(
                             sideTitles: SideTitles(
                               showTitles: true,  
-                              reservedSize: 18,
+                              reservedSize: 28,
                               getTitlesWidget: (value, meta) {
                                 if (value >= 0 && value < weatherModel.dailyWeatherList.length) {
                                   final dateOfDay = weatherModel.dailyWeatherList[value.toInt()].date;
                                   final day = dateOfDay.day.toString().padLeft(2, '0');
                                   final month = dateOfDay.month.toString().padLeft(2, '0');
-                                  return Text(
-                                    '$day/$month',
-                                    style: const TextStyle(fontSize: 12),
+                                  return SideTitleWidget(
+                                    meta: meta,
+                                    child: Text(
+                                      '$day/$month',
+                                      style: const TextStyle(fontSize: 12),
+                                    ),
                                   );
                                 }
                                 return const Text('');
