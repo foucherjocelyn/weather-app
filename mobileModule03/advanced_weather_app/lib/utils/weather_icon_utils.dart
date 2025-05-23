@@ -8,7 +8,7 @@ IconData getWeatherIcon(String description) {
   } else if (description.contains('Overcast')) {
     return Icons.cloud;
   } else if (description.contains('Fog')) {
-    return Icons.filter_drama;
+    return Icons.foggy;
   } else if (description.contains('drizzle') || description.contains('Slight rain')) {
     return Icons.water_drop;
   } else if (description.contains('rain') || description.contains('shower')) {
