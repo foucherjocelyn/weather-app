@@ -1,18 +1,16 @@
-
-//TODO: make non-nullable
 class Location {
   final String city;
   final String region;
   final String country;
-  final double latitude;  // Make non-nullable
-  final double longitude; // Make non-nullable
+  final double latitude;
+  final double longitude;
 
   Location({
     required this.city,
     required this.region,
     required this.country,
-    required this.latitude,  // Required parameter
-    required this.longitude, // Required parameter
+    required this.latitude,
+    required this.longitude,
   });
 
   factory Location.fromJson(Map<String, dynamic> json) {
