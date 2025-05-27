@@ -33,9 +33,14 @@ class _TopBarState extends State<TopBar> {
   }
 
   Future<void> _searchCities(String query, BuildContext context) async {
+    print("----------------------------------------------");
+    print(query);
     final locationService = context.read<LocationService>();
     final cities = await locationService.searchCities(query);
-    setState(() => suggestions = cities.sublist(0, 5));
+    print("cities found:");
+    print(cities.length);
+    print(cities);
+    setState(() => suggestions = cities.take(5).toList());
   }
 
   @override

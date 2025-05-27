@@ -58,7 +58,8 @@ class WeeklyWeatherTab extends StatelessWidget {
                             sideTitles: SideTitles(
                               showTitles: true,
                               reservedSize: 50,
-                              interval: 5,
+                              minIncluded: false,
+                              maxIncluded: false,
                               getTitlesWidget: (value, meta) {
                               return SideTitleWidget(
                                 meta: meta,

@@ -54,22 +54,23 @@ class TodayWeatherTab extends StatelessWidget {
                     child: LineChart(
                       LineChartData(
                         titlesData: FlTitlesData(
-                            leftTitles: AxisTitles(
+                          leftTitles: AxisTitles(
                             sideTitles: SideTitles(
                               showTitles: true,
                               reservedSize: 50,
-                              interval: 5,
+                              minIncluded: false,
+                              maxIncluded: false,
                               getTitlesWidget: (value, meta) {
-                              return SideTitleWidget(
-                                meta: meta,
-                                child: Text(
-                                  '${value}°C',
-                                  style: const TextStyle(fontSize: 12),
-                                ),
-                              );
+                                return SideTitleWidget(
+                                  meta: meta,
+                                  child: Text(
+                                    '${value}°C',
+                                    style: const TextStyle(fontSize: 12),
+                                  ),
+                                );
                               },
                             ),
-                            ),
+                          ),
                           bottomTitles: AxisTitles(
                             sideTitles: SideTitles(
                               showTitles: true,

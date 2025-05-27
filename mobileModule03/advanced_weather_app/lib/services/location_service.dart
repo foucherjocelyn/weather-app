@@ -94,11 +94,23 @@ class LocationService extends ChangeNotifier {
 
       if (response.statusCode == 200) {
         final List<dynamic> results = jsonDecode(response.body)['results'] ?? [];
-        return results.map((json) => Location.fromJson(json)).toList();
+        
+        // Filter out any locations that fail to parse
+        return results
+          .map((json) {
+            try {
+              return Location.fromJson(json);
+            } catch (e) {
+              print('Failed to parse location: $e');
+              return null;
+            }
+          })
+          .where((location) => location != null)
+          .cast<Location>()
+          .toList();
       }
       return [];
     } catch (e) {
-      // _error = e.toString();
       notifyListeners();
       return [];
     }
