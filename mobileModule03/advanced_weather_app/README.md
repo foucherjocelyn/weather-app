@@ -22,10 +22,6 @@ A comprehensive Flutter weather application that provides current weather condit
 - **Charts & Graphs**: Visual representation of weather data using FL Chart
 - **Responsive Design**: Optimized for various screen sizes
 
-## Screenshots
-
-*Add screenshots of your app here*
-
 ## Technologies Used
 
 ### Framework & Language
